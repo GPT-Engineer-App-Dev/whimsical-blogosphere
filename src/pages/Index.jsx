@@ -1,7 +1,7 @@
 import { Container, Text, VStack, Heading, Box, Image, Link, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
-const Index = ({ posts }) => {
+const Index = ({ posts, deletePost }) => {
   return (
     <Container centerContent maxW="container.md" py={10}>
       <VStack spacing={8} align="stretch">
@@ -21,6 +21,7 @@ const Index = ({ posts }) => {
                 <Text mt={2}>{post.content}</Text>
                 {post.imageUrl && <Image src={post.imageUrl} alt={post.title} borderRadius="md" mt={2} />}
                 <Link color="teal.500" href="#">Read more</Link>
+                <Button colorScheme="red" size="sm" mt={2} onClick={() => deletePost(index)}>Delete</Button>
               </Box>
             ))}
           </VStack>
